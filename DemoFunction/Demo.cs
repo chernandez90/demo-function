@@ -35,8 +35,9 @@ namespace DemoFunction
             }
 
             string conn = _config.GetConnectionString("Default");
+            string test = _config.GetValue<string>("Test:Test1");
             var response = req.CreateResponse(HttpStatusCode.OK);
-            await response.WriteStringAsync(conn);
+            await response.WriteStringAsync(conn + " - " + test);
             return response;
         }
     }
